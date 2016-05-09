@@ -31,4 +31,30 @@ and two types of true quality models:
 - QM1. low-prestigious groups produce papers with slightly lower average but higher variance in quality than high-prestigious groups
 - QM2. low- and high-prestigious groups have same distribution of true quality of their produced papers
 
-Scenario 1 combines PB0+QM1, scenario 2 combines PB1+QM1, while scenario 3 combines PB1+QM2. Scenario 3 is mostly a sensitivity check to see how sensitive results are to the quality models.
+- [Scenario 1](https://github.com/robertfeldt/ConfReviewSimulator/blob/master/results/ICSE17_20160509_191337_50k_noprestigebias_authlimitreducessubmissions.csv) combines PB0+QM1, 
+- [Scenario 2](https://github.com/robertfeldt/ConfReviewSimulator/blob/master/results/ICSE17_20160509_191337_50k_prestigebias_20_15_authlimitnoreduction.csv) combines PB1+QM1, while 
+- [Scenario 3](https://github.com/robertfeldt/ConfReviewSimulator/blob/master/results/ICSE17_20160509_191337_50k_prestigebias_20_15_authlimitnoreduction_sameqdistr.csv) combines PB1+QM2. 
+
+Scenario 3 is mostly a sensitivity check to see how sensitive results are to the quality models. It is easy to run more scenarios so I might do that later.
+
+# Which effect variables are studied?
+
+The columns in the resulting csv files linked above are:
+
+- Methods = which policy does this row correspond to
+- NumSubm = number of submitted papers
+- RevTimeDays = review time in days
+- Withhold = papers withhold due to a limit (if any)
+- NumGroups = number of unique groups with accepted papers
+- Unfair = percent of unfairly rejected or accepted papers compared to if review process would have been ideal (and based on the "true" score of a paper)
+- UnfairRej = percent of unfairly rejected papers
+- UnfairAcc = percent of unfairly accepted papers (should be same as UnfairRej)
+- MAPE = Mean Absolute Percentage Error in assigned from true score of the papers
+- AccRateHiPr = acceptance rate for papers submitted by high-prestigious groups
+- AccRateLoPr = acceptance rate for papers submitted by low-prestigious groups
+
+The result files are based either on 10,000 or 50,000 simulations per policy per scenario. Results seems fairly stable already for 10,000 simulations.
+
+# I totally disagree with your modeling assumptions!
+
+This is totally understandable; I'm sure I've made many mistakes and might even change/improve them over time. Sorry for that. By sharing what I did at least it is reproduceable and you are free to change it to your liking. If you do please share your results.
