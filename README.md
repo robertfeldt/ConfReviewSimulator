@@ -10,6 +10,11 @@ Naturally, these conclusions are heavily dependent on the initial assumptions an
 Feel free to contact me with your proposed changes or ideas to improve this and consider more scenarios / input assumptions. Or just fork this repo and make any changes / simulations you want. :)
 
 
+# Where can I find your detailed assumptions / model?
+
+[Check the simulation script itself](https://github.com/robertfeldt/ConfReviewSimulator/blob/master/src/icse17_review_process_simulations.jl), I at least tried to initially comment it quite heavily.
+
+
 # So what are the conclusions?
 
 It so heavily depends on what you think are reasonable "input" models for the "true" quality of submitted papers, and many other assumptions, that I dare not say much. 
