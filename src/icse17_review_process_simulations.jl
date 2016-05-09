@@ -392,7 +392,7 @@ function compare_scenarios(N, probPrestigeBias, pbSize, limitAffectsNumSubmissio
     df[:AccRateHiPr] = map(v -> round(100.0 * v, digits), res[2,:][:])
     df[:AccRateLoPr] = map(v -> round(100.0 * v, digits), res[3,:][:])
 
-    return res, df
+    return res, df, Any[snl, sl3b, sl3rm, sl2b, sl2r, sdb, sdb3b, sdb3r]
 end
 
 N = 50000 # Seems stable after 1e4 but why not go longer; we have the CPU power & mem... ;)
@@ -401,7 +401,7 @@ N = 50000 # Seems stable after 1e4 but why not go longer; we have the CPU power 
 probPrestigeBias = 0.0
 sizePrestigeBias = 0.0*NumGrades
 AuthLimitReducesSubmissions = true
-@time res_0_0_eff, df_0_0_eff = compare_scenarios(N, 
+@time res_0_0_eff, df_0_0_eff, ad_0_0_eff = compare_scenarios(N, 
     probPrestigeBias, sizePrestigeBias, AuthLimitReducesSubmissions, EstICSEAccRate);
 println(sort!(df_0_0_eff, cols = [:Unfair, :Withhold, :RevTimeDays]))
 
@@ -411,7 +411,7 @@ println(sort!(df_0_0_eff, cols = [:Unfair, :Withhold, :RevTimeDays]))
 probPrestigeBias = 0.20
 sizePrestigeBias = 0.15*NumGrades
 AuthLimitReducesSubmissions = false
-@time res_20_15_noeff, df_20_15_noeff = compare_scenarios(N, 
+@time res_20_15_noeff, df_20_15_noeff, ad_20_15_noeff = compare_scenarios(N, 
     probPrestigeBias, sizePrestigeBias, AuthLimitReducesSubmissions, EstICSEAccRate);
 println(sort!(df_20_15_noeff, cols = [:Unfair, :Withhold, :RevTimeDays]))
 
@@ -419,7 +419,7 @@ println(sort!(df_20_15_noeff, cols = [:Unfair, :Withhold, :RevTimeDays]))
 # true quality of papers. For example if we rerun Roberts scenario but assuming papers
 # from low-prestigious groups have same quality as high-prestigious ones we get:
 DistrPaperQualityLowPrestige = DistrPaperQualityHighPrestige
-@time res_20_15_noeff_samedistr, df_20_15_noeff_samedistr = compare_scenarios(N, 
+@time res_20_15_noeff_samedistr, df_20_15_noeff_samedistr, ad_20_15_noeff_samedistr = compare_scenarios(N, 
     probPrestigeBias, sizePrestigeBias, AuthLimitReducesSubmissions, EstICSEAccRate);
 
 # Sort based on prio: 1. Least unfair, 2. Fewest papers withhold, 3. Review time in days
@@ -435,3 +435,11 @@ ts = Libc.strftime("%Y%m%d_%H%M%S_$(round(Int, N/1000))k", time())
 writetable("results/$(Conf)_$(ts)_noprestigebias_authlimitreducessubmissions.csv", df_0_0_eff)
 writetable("results/$(Conf)_$(ts)_prestigebias_20_15_authlimitnoreduction.csv", df_20_15_noeff)
 writetable("results/$(Conf)_$(ts)_prestigebias_20_15_authlimitnoreduction_sameqdistr.csv", df_20_15_noeff_samedistr)
+
+# Save raw data as serialized julia data if we need to read it back in for further analysis:
+open(fh -> serialize(fh, res_0_0_eff), "results/$(Conf)_$(ts)_noprestigebias_authlimitreducessubmissions.jldata", "w")
+open(fh -> serialize(fh, res_20_15_noeff), "results/$(Conf)_$(ts)_prestigebias_20_15_authlimitnoreduction.jldata", "w")
+open(fh -> serialize(fh, res_20_15_noeff_samedistr), "results/$(Conf)_$(ts)_prestigebias_20_15_authlimitnoreduction_sameqdistr.jldata", "w")
+open(fh -> serialize(fh, ad_0_0_eff), "results/$(Conf)_$(ts)_noprestigebias_authlimitreducessubmissions_all.jldata", "w")
+open(fh -> serialize(fh, ad_20_15_noeff), "results/$(Conf)_$(ts)_prestigebias_20_15_authlimitnoreduction_all.jldata", "w")
+open(fh -> serialize(fh, ad_20_15_noeff_samedistr), "results/$(Conf)_$(ts)_prestigebias_20_15_authlimitnoreduction_sameqdistr_all.jldata", "w")
