@@ -68,3 +68,8 @@ The result files are based either on 10,000 or 50,000 simulations per policy per
 # I totally disagree with your modeling assumptions!
 
 This is totally understandable; I'm sure I've made many mistakes and might even change/improve them over time. Sorry for that. By sharing what I did at least it is reproduceable and you are free to change it to your liking. If you do please share your results.
+
+
+# I found a strange thing in your results!
+
+I'm sure there are some bugs here; I did this while on parental leave while my little one was taking naps throughout the day. Please be gentle. :) But contact me to point out the problem so I can fix it, thanks.
