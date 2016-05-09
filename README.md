@@ -9,6 +9,7 @@ Naturally, these conclusions are heavily dependent on the initial assumptions an
 
 Feel free to contact me with your proposed changes or ideas to improve this and consider more scenarios / input assumptions. Or just fork this repo and make any changes / simulations you want. :)
 
+
 # So what are the conclusions?
 
 It so heavily depends on what you think are reasonable "input" models for the "true" quality of submitted papers, and many other assumptions, that I dare not say much. 
@@ -16,6 +17,12 @@ It so heavily depends on what you think are reasonable "input" models for the "t
 But when I use what I think are at least fairly reasonable assumptions the [results can be seen here](https://github.com/robertfeldt/ConfReviewSimulator/blob/master/results/ICSE17_20160509_191337_50k_prestigebias_20_15_authlimitnoreduction.csv). This is the result of a simulation where the number of total submissions is basically unchanged since I think that any reduction due to the limit is likely to be offset by new groups submitting papers (since they think ICSE is now more "open" to outsiders) or existing submitters submitting more papers (for similar reasons). 
 
 And even if you think that there actually will be a reduction in the number of submitted papers the effect seems to be a few percent less total hours spent on reviewing (column RevTimeDays [in this result](https://github.com/robertfeldt/ConfReviewSimulator/blob/master/results/ICSE17_20160509_191337_50k_noprestigebias_authlimitreducessubmissions.csv) shows 155 days of review effort for AuthLimit3Best vs 157.7 for NoAuthLimit, a 1.7% reduction).
+
+
+# But really, what are the conclusions?
+
+To me it seems that double blind review would have similar or better effect while not having much negative effects. However, please note that a policy change also communicates values and might affect how people perceive and thus act in relation to the conference. This is not something that one can easily model or simulate IMHO. You should thus use these results with a grain of salt, please.
+
 
 # Which scenarios and policys have you used?
 
@@ -54,6 +61,7 @@ The columns in the resulting csv files linked above are:
 - AccRateLoPr = acceptance rate for papers submitted by low-prestigious groups
 
 The result files are based either on 10,000 or 50,000 simulations per policy per scenario. Results seems fairly stable already for 10,000 simulations.
+
 
 # I totally disagree with your modeling assumptions!
 
