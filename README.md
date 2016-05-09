@@ -73,3 +73,7 @@ This is totally understandable; I'm sure I've made many mistakes and might even 
 # I found a strange thing in your results!
 
 I'm sure there are some bugs here; I did this while on parental leave while my little one was taking naps throughout the day. Please be gentle. :) But contact me to point out the problem so I can fix it, thanks.
+
+To me it seem strange that the MAPE for DoubleBlind can sometimes be higher than for NoAuthLimit while the unfairness always seems lower. But I guess the mean in MAPE can be tricked by a few outliers.
+
+It also seem strange to me that there is so little effect on the number of groups that gets accepted. But it does increase for AuthLimit2Best and Rnd which seems in line with what I expected. That this is not seen for DoubleBlind might be because it just reflects that DB makes the process more fair so that, as modeled here, high-prestigious groups get more papers in which outweighs any other effect.
