@@ -21,7 +21,9 @@ And even if you think that there actually will be a reduction in the number of s
 
 # But really, what are the conclusions?
 
-To me it seems that double blind review would have similar or better effect while not having much negative effects. However, please note that a policy change also communicates values and might affect how people perceive and thus act in relation to the conference. This is not something that one can easily model or simulate IMHO. You should thus use these results with a grain of salt, please.
+To me it **seems that double blind review would have similar or better effect** while not having much negative effects. It increases fairness somewhat without requiring people to withhold papers from submission. It [also seems right in general and like the right thing to do](http://www.robertfeldt.net/advice/double_blind_reviewing/). But note that differences between policys are quite small overall. It is interesting to note that few of the policys have much or any effect on the diversity of the groups that are accepted at ICSE; the number of unique groups stays almost the same regardless of policy.
+
+However, please note that a policy change also communicates values and might affect how people perceive and thus act in relation to the conference. This is not something that one can easily model or simulate IMHO. You should thus use these results with a grain of salt, please.
 
 
 # Which scenarios and policys have you used?
