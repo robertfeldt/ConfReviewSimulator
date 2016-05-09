@@ -1,7 +1,7 @@
-Conference Review Simulation
-============================
+(ICSE17) Conference Review Policy Simulation
+============================================
 
-This is mostly for fun but might help inform decisions around changes to conference review processes. There was much discussion around the ICSE 2017 PC chairs propoal to limit the number of papers per author to 3, and some concerned researchers even [started a petition to abandon the limit](https://sites.google.com/site/icse2017petition/). 
+This is mostly for fun but could at least in theory help inform decisions around changes to conference review processes. There was much discussion around the ICSE 2017 PC chairs propoal to limit the number of papers per author to 3, and some concerned researchers even [started a petition to abandon the limit](https://sites.google.com/site/icse2017petition/). The simulation script used is currently focused on simulating ICSE2017.
 
 By making, what I think are decent, assumptions and guesstimates I built a stochastic simulation model for studying the effects of the proposed change (and some alternatives). By [running it for a total of 1.2 million simulated review processes](https://github.com/robertfeldt/ConfReviewSimulator/blob/master/results/ICSE17_20160509_191337_50k_prestigebias_20_15_authlimitnoreduction.csv) I conclude that the proposed author limit is unlikely to have a big effect on either the total review effort or on the number of research groups whose papers are accepted. 
 
