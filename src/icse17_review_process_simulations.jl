@@ -180,6 +180,7 @@ end
 LowCut = 0.3 * NumGrades
 HighCut = 0.7 * NumGrades
 varClear = 0.10
+#varClear = 0.20
 varMessy = 0.50
 
 ismessymiddlepaper(truescore) = LowCut < truescore <= HighCut
@@ -392,10 +393,11 @@ function compare_scenarios(N, probPrestigeBias, pbSize, limitAffectsNumSubmissio
     df[:AccRateHiPr] = map(v -> round(100.0 * v, digits), res[2,:][:])
     df[:AccRateLoPr] = map(v -> round(100.0 * v, digits), res[3,:][:])
 
-    return res, df, Any[snl, sl3b, sl3rm, sl2b, sl2r, sdb, sdb3b, sdb3r]
+    return res, df, Any[snl, sl3b, sl3r, sl2b, sl2r, sdb, sdb3b, sdb3r]
 end
 
-N = 50000 # Seems stable after 1e4 but why not go longer; we have the CPU power & mem... ;)
+#N = 50000 # Seems stable after 1e4 but why not go longer; we have the CPU power & mem... ;)
+N = 10000
 
 # Let's assume there is no Prestige Bias and author limit has effect on num submissions:
 probPrestigeBias = 0.0
