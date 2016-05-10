@@ -82,6 +82,8 @@ and two types of true quality models:
 - QM1. low-prestigious groups produce papers with slightly lower average but higher variance in quality than high-prestigious groups
 - QM2. low- and high-prestigious groups have same distribution of true quality of their produced papers
 
+which are then combined in three main scenarios:
+
 - [Scenario 1](https://github.com/robertfeldt/ConfReviewSimulator/blob/master/results/ICSE17_20160509_191337_50k_noprestigebias_authlimitreducessubmissions.csv) combines PB0+QM1, 
 - [Scenario 2](https://github.com/robertfeldt/ConfReviewSimulator/blob/master/results/ICSE17_20160509_191337_50k_prestigebias_20_15_authlimitnoreduction.csv) combines PB1+QM1, while 
 - [Scenario 3](https://github.com/robertfeldt/ConfReviewSimulator/blob/master/results/ICSE17_20160509_191337_50k_prestigebias_20_15_authlimitnoreduction_sameqdistr.csv) combines PB1+QM2. 
