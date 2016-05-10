@@ -15,7 +15,7 @@ Feel free to contact me with your proposed changes or ideas to improve this and 
 The ultimate source is [the simulation script itself](https://github.com/robertfeldt/ConfReviewSimulator/blob/master/src/icse17_review_process_simulations.jl), I at least tried to initially comment it quite heavily. But I also try to summarize the assumptions below (and link to variable names and values in the script where appropriate). Assumption 1 just states my basic view on what we want to achieve; it may or may not have indirectly affected other choices, but have no explicit effect that I'm aware of. The rest of the assumptions directly affect the simulation:
 
 1. There are criteria that are more important than the review time:
-  1. Unfairly treated papers (i.e. accepted/rejected due to non-ideal review process,
+  1. Unfairly treated papers (i.e. accepted/rejected due to non-ideal review process),
   2. Diversity in the set of authors/groups that gets accepted, and
   3. Review effort/time should be as low as possible unless it has adverse effect on the other criteria.
 2. To simplify we study research groups rather than individual researchers. So an author limit of 3 here means that each group can only submit a maximum of 3 papers. For some large groups in reality this would mean they can be approximated as multiple, smaller groups in this simulation.
@@ -44,6 +44,7 @@ The ultimate source is [the simulation script itself](https://github.com/robertf
   2. `DistrTimeToDiscuss = TruncatedNormal(0.5, 0.5, 0.25, Inf)`
 10. Double blind review means that there is no prestige bias unless the reviewer can correctly identify/guess the authors. According to [Budden2008](http://www.csz-scz.ca/documents/news/scientific_reviews.pdf) this happens between 25-42% of the time. Distribution not known so we sample a probability uniformly in the Budden range (for each review). If the authors are identified we assume the same risk and size of prestige bias as when no double blind is used.
   1. `prob_identified = rand(Uniform(0.25, 0.42))`
+11. Prestige bias is either modeled as non-existant or as having 20% chance of affecting a reviewer and if it does to lead to an increased grade of 15% for a paper from a highly prestigious group.
 
 Note that several of these choices are arbitrary but I tried to stay close to the literature on this that I know of. Or I tried to "guesstimate" based on my own experience. In hindsight I can see that some choices are maybe too extreme (5 times higher variation in review scores for messy middle seems excessive). But with the script it is now easy to study alternative choices and I intend to do so. 
 
