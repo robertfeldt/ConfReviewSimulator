@@ -45,6 +45,7 @@ The ultimate source is [the simulation script itself](https://github.com/robertf
 10. Double blind review means that there is no prestige bias unless the reviewer can correctly identify/guess the authors. According to [Budden2008](http://www.csz-scz.ca/documents/news/scientific_reviews.pdf) this happens between 25-42% of the time. Distribution not known so we sample a probability uniformly in the Budden range (for each review). If the authors are identified we assume the same risk and size of prestige bias as when no double blind is used.
   1. `prob_identified = rand(Uniform(0.25, 0.42))`
 11. Prestige bias is either modeled as non-existant or as having 20% chance of affecting a reviewer and if it does to lead to an increased grade of 15% for a paper from a highly prestigious group.
+12. If there is an authoring limit imposed groups either only submit the best of the papers they wanted to submit or select randomly between them. Both policys are simulated.
 
 Note that several of these choices are arbitrary but I tried to stay close to the literature on this that I know of. Or I tried to "guesstimate" based on my own experience. In hindsight I can see that some choices are maybe too extreme (5 times higher variation in review scores for messy middle seems excessive). But with the script it is now easy to study alternative choices and I intend to do so. 
 
